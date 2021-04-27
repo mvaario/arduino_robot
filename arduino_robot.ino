@@ -57,8 +57,9 @@ void loop () {
 void move_state(){
     // forward
     move.rest();
-    motor.fordward();
     // while arguments
+    motor.fordward();
+    move.interupts();
     move.movement();
 
 

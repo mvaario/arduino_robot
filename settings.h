@@ -48,4 +48,5 @@ const int servo_right = 180;     // calibration for servo angle right
 int angle = 90;                 // servo angle
 Servo myServo;
 
-
+// Distances
+const int min_dis = 30;

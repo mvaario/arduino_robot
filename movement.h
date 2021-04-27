@@ -10,18 +10,6 @@ sensor_setups sensor;
 motor_setups motor;
 
 void movement(){
-    // INTERUPTS
-    // switch check
-    button.start_button();
-
-    // sensor info
-    sensor.left_sensor();
-    sensor.right_sensor();
-    // sensor.center_sensor();
-
-    // vika sensori
-    // sensor.up_sensor();
-    
     if (on){
         // motors
         analogWrite(left_enable, motor_speed);
@@ -35,6 +23,30 @@ void movement(){
         analogWrite(left_enable, motor_speed);
         analogWrite(right_enable, motor_speed);
     }
+}
+
+void interupts(){
+    // switch check
+    button.start_button();
+
+    // sensor info
+    sensor.left_sensor();
+    sensor.right_sensor();
+    // sensor.center_sensor();
+
+    // vika sensori
+    // sensor.up_sensor();
+
+    // Interupts parameters
+    while (left_distance < min_dis or right_distance < min_dis){
+        motor.stop();
+        movement();
+    }
+
+
+
+
+
 }
 
 void rest(){

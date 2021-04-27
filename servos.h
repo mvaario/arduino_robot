@@ -1,5 +1,6 @@
 class servo_setups {
 public:
+#include "settings.h"
 
 void movement(){
   if (on){

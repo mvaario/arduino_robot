@@ -2,27 +2,6 @@
     "version": 4,
     "configurations": [
         {
-            "name": "Win32",
-            "compilerPath": "",
-            "compilerArgs": [],
-            "intelliSenseMode": "windows-msvc-x64",
-            "includePath": [
-                "D:\\Programs\\arduino-1.8.13\\tools\\**",
-                "C:\\Users\\huxiez\\Documents\\Arduino\\libraries\\**",
-                "D:\\Programs\\arduino-1.8.13\\libraries\\**",
-                "D:\\Programs\\arduino-1.8.13\\hardware\\tools\\**",
-                "D:\\Programs\\arduino-1.8.13\\hardware\\arduino\\avr\\**"
-            ],
-            "forcedInclude": [
-                "D:\\Programs\\arduino-1.8.13\\hardware\\arduino\\avr\\cores\\arduino\\Arduino.h"
-            ],
-            "cStandard": "c17",
-            "cppStandard": "c++17",
-            "defines": [
-                "USBCON"
-            ]
-        },
-        {
             "name": "Arduino",
             "compilerPath": "D:\\Programs\\arduino-1.8.13\\hardware\\tools\\avr\\bin\\avr-g++",
             "compilerArgs": [
@@ -38,7 +17,7 @@
             "intelliSenseMode": "gcc-x64",
             "includePath": [
                 "D:\\Programs\\arduino-1.8.13\\hardware\\arduino\\avr\\cores\\arduino",
-                "D:\\Programs\\arduino-1.8.13\\hardware\\arduino\\avr\\variants\\standard",
+                "D:\\Programs\\arduino-1.8.13\\hardware\\arduino\\avr\\variants\\mega",
                 "D:\\Programs\\arduino-1.8.13\\libraries\\Servo\\src",
                 "d:\\programs\\arduino-1.8.13\\hardware\\tools\\avr\\lib\\gcc\\avr\\7.3.0\\include",
                 "d:\\programs\\arduino-1.8.13\\hardware\\tools\\avr\\lib\\gcc\\avr\\7.3.0\\include-fixed",
@@ -52,7 +31,7 @@
             "defines": [
                 "F_CPU=16000000L",
                 "ARDUINO=10813",
-                "ARDUINO_AVR_UNO",
+                "ARDUINO_AVR_MEGA2560",
                 "ARDUINO_ARCH_AVR",
                 "__DBL_MIN_EXP__=(-125)",
                 "__HQ_FBIT__=15",

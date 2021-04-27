@@ -37,11 +37,15 @@ const int turning_speed = 50;       // motor turning speed
 const int straight_speed = 80;      // motor straight / backward speed
 int motor_speed = 0;                // motor speed
 
-int rest_time = 20;                 // rest time
+int rest_time = 50;                 // rest time
 
 //Servo setups
+const int servo_pin = 10;        // servo pin
+const int servo_straight = 90;   // calibration for servo angle forward
+const int servo_left = 0;        // calibration for servo angle left
+const int servo_right = 180;     // calibration for servo angle right
+
+int angle = 90;                 // servo angle
 Servo myServo;
 
-const int servo_pin = 10;        // servo pin
-int angle = 90;                 // servo angle
 

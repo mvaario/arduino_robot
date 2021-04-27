@@ -1,20 +1,20 @@
 #include <Servo.h>
-#include "settings.h"
+#include "motors.h"
+#include "movement.h"
 #include "switch.h"
-#include "route.h"
-#include "sensor.h"
+#include "settings.h"
 
-
+motor_setups motor;
+movement_setups move;
 switch_setups button;
-route_setups route;
-sensor_setups sensor;
 
 void setup() {
   //Switch and leds
   pinMode(switch_pin, INPUT);
   // pinMode(green_led, OUTPUT);
   // pinMode(red_led, OUTPUT);
-
+  // digitalWrite(red_led, LOW);
+  // digitalWrite(green_led, LOW);
 
   //Sensor setups
   pinMode(left_trig, OUTPUT);
@@ -35,16 +35,44 @@ void setup() {
   pinMode(right_1, OUTPUT);
   pinMode(right_2, OUTPUT);
 
-  delay(1);
+
+  myServo.attach(servo_pin);
   Serial.begin(9600);
+  delay(1);
 }
 
 void loop () {
-    // Start
+    // idle state - check switch
     button.start_button();
-
-    while (on){
-      route.start();
-
+    
+    if (on){
+      move_state();
+      on = false;
     }
+    else{
+      delayMicroseconds(100);
+    }
+}
+
+void move_state(){
+    // forward
+    move.rest();
+    motor.fordward();
+    // while arguments
+    move.movement();
+
+
+    // // turn right
+    // move.rest();
+    // motor.right();
+    // // while arguments
+    // move.movement();
+
+    // // forward
+    // move.rest();
+    // motor.fordward();
+    // // while arguments
+    // move.movement();
+
+
 }

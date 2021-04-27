@@ -1,20 +1,22 @@
 class motor_setups {
 public:
+#include "settings.h"
 
 void fordward(){
     // parametres for forward
+    // Motors speed
     motor_speed = straight_speed;
 
-    // left motor
+    // left motor direction
     digitalWrite(left_1, HIGH);
     digitalWrite(left_2, LOW);
 
-    // right motor
+    // right motor direction
     digitalWrite(right_1, HIGH);
     digitalWrite(right_2, LOW);
 
     // servo angle
-    angle = 90;
+    angle = servo_straight;
 }
 
 void backward(){
@@ -30,7 +32,7 @@ void backward(){
     digitalWrite(right_2, HIGH);
 
     // servo angle
-    angle = 90;
+    angle = servo_straight;
 }
 
 void right(){
@@ -46,7 +48,7 @@ void right(){
     digitalWrite(right_2, HIGH);
 
     // servo angle
-    angle = 180;
+    angle = servo_right;
 }
 
 void left(){
@@ -62,10 +64,11 @@ void left(){
     digitalWrite(right_2, LOW);
 
     // servo angle
-    angle = 0;
+    angle = servo_left;
 }
+
 void stop(){
-    // parametres for left turn
+    // parametres for stop
     motor_speed = 0;
 
     // left motor
@@ -77,8 +80,6 @@ void stop(){
     digitalWrite(right_2, LOW);
 
     // servo angle
-    angle = 0;
+    angle = myServo.read();
 }
-
-
 };

@@ -1,6 +1,8 @@
 class switch_setups {
 public:
 
+#include "settings.h"
+
 void start_button(){
     // reading on switch
     on_switch = digitalRead(switch_pin);

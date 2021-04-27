@@ -1,5 +1,6 @@
 class sensor_setups {
 public:
+#include "settings.h"
 
 // Left sensor
 void left_sensor(){
@@ -30,16 +31,16 @@ void right_sensor(){
 }
 
 // center sensor
-void center_sensor(){
-    digitalWrite(center_trig, LOW);
-    delayMicroseconds(2);
+// void center_sensor(){
+//     digitalWrite(center_trig, LOW);
+//     delayMicroseconds(2);
 
-    digitalWrite(center_trig, HIGH);
-    delayMicroseconds(10);
-    digitalWrite(center_trig, LOW);
+//     digitalWrite(center_trig, HIGH);
+//     delayMicroseconds(10);
+//     digitalWrite(center_trig, LOW);
 
-    duration = pulseIn(center_echo, HIGH);
-    center_distance = duration * 0.034 / 2;
+//     duration = pulseIn(center_echo, HIGH);
+//     center_distance = duration * 0.034 / 2;
 
-}
+// }
 };

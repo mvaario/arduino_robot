@@ -56,34 +56,33 @@ void loop () {
 }
 
 void move_state(){
-    // forward x amount times
-    rest();
+  // forward x amount times
+  rest();
 
-    for (int i = 0; i < 500; i++){
-      fordward();
-      movement();
-    
+  for (int i = 0; i < 500; i++){
+    fordward();
+    movement();
+  }
 
+  rest();
+  // turn right
+  for (int i = 0; i < 500; i++){
+    right();
+    movement();
+  }
 
-    rest();
-    // turn right
-    for (int i = 0; i < 500; i++){
-      right();
-      movement();
-    }
+  rest();
+  // turn right x2 (180 degree)
+  for (int i = 0; i < 500; i++){
+    right();
+    movement();
+  }
 
-    rest();
-    // turn right x2 (180 degree)
-    for (int i = 0; i < 500; i++){
-      right();
-      movement();
-    }
-
-    rest();
-    // forward 2x
-    for (int i = 0; i < 500; i++){
-      fordward();
-      movement();
-    }
+  rest();
+  // forward 2x
+  for (int i = 0; i < 500; i++){
+    fordward();
+    movement();
+  }
     
 }

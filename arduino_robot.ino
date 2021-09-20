@@ -1,14 +1,9 @@
-// ASD
-
 #include <Servo.h>
 #include "motors.h"
 #include "movement.h"
 #include "switch.h"
 #include "settings.h"
 
-motor_setups motor;
-movement_setups move;
-switch_setups button;
 
 void setup() {
   //Switch and leds

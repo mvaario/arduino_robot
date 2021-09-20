@@ -1,7 +1,3 @@
-class motor_setups {
-public:
-#include "settings.h"
-
 void fordward(){
     // parametres for forward
     // Motors speed
@@ -82,4 +78,3 @@ void stop(){
     // servo angle
     angle = myServo.read();
 }
-};

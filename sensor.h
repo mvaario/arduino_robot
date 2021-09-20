@@ -1,6 +1,3 @@
-class sensor_setups {
-public:
-#include "settings.h"
 
 // Left sensor
 void left_sensor(){
@@ -43,4 +40,3 @@ void right_sensor(){
 //     center_distance = duration * 0.034 / 2;
 
 // }
-};

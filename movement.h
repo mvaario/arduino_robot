@@ -1,14 +1,3 @@
-class movement_setups {
-public:
-#include "settings.h"
-#include "sensor.h"
-#include "motors.h"
-#include "switch.h"
-
-switch_setups button;
-sensor_setups sensor;
-motor_setups motor;
-
 void movement(){
     if (on){
         // motors
@@ -63,4 +52,3 @@ void rest(){
         }
     }
 }
-};

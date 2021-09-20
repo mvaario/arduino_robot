@@ -43,10 +43,10 @@ int rest_time = 50;                 // rest time
 const int servo_pin = 10;        // servo pin
 const int servo_straight = 90;   // calibration for servo angle forward
 const int servo_left = 0;        // calibration for servo angle left
-const int servo_right = 180;     // calibration for servo angle right
+const int servo_right = 179;     // calibration for servo angle right
 
 int angle = 90;                 // servo angle
 Servo myServo;
 
 // Distances
-const int min_dis = 30;
+const int min_dis = 30;         // Sensor distance to stop

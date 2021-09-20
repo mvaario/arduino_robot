@@ -1,6 +1,6 @@
-
 // Left sensor
 void left_sensor(){
+    // Calculating left sensor disrance
     digitalWrite(left_trig, LOW);
     delayMicroseconds(2);
 
@@ -14,29 +14,25 @@ void left_sensor(){
 
 // Right sensor
 void right_sensor(){
+    // calculating right sensor distance
     digitalWrite(right_trig, LOW);
     delayMicroseconds(2);
 
     digitalWrite(right_trig, HIGH);
     delayMicroseconds(10);
     digitalWrite(right_trig, LOW);
-
+    
     duration = pulseIn(right_echo, HIGH);
     right_distance = duration * 0.034 / 2;
-
-
 }
 
 // center sensor
 // void center_sensor(){
 //     digitalWrite(center_trig, LOW);
 //     delayMicroseconds(2);
-
 //     digitalWrite(center_trig, HIGH);
 //     delayMicroseconds(10);
 //     digitalWrite(center_trig, LOW);
-
 //     duration = pulseIn(center_echo, HIGH);
 //     center_distance = duration * 0.034 / 2;
-
 // }

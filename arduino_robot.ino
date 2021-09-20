@@ -1,19 +1,20 @@
 #include <Servo.h>
-#include "motors.h"
-#include "movement.h"
-#include "switch.h"
 #include "settings.h"
+#include "sensors.h"
+#include "motors.h"
+#include "switch.h"
+#include "movement.h"
 
 
 void setup() {
-  //Switch and leds
-  pinMode(switch_pin, INPUT);
+  // Switch and leds
+  // pinMode(switch_pin, INPUT);
   // pinMode(green_led, OUTPUT);
   // pinMode(red_led, OUTPUT);
   // digitalWrite(red_led, LOW);
   // digitalWrite(green_led, LOW);
 
-  //Sensor setups
+  // Sensor setups
   pinMode(left_trig, OUTPUT);
   pinMode(left_echo, INPUT);
 
@@ -40,11 +41,14 @@ void setup() {
 
 void loop () {
     // idle state - check switch
-    button.start_button();
+    start_button();
     
+    // start 
     if (on){
       move_state();
+      // on = false when done
       on = false;
+      delay(100);
     }
     else{
       delayMicroseconds(100);
@@ -52,25 +56,34 @@ void loop () {
 }
 
 void move_state(){
-    // forward
-    move.rest();
-    // while arguments
-    motor.fordward();
-    move.interupts();
-    move.movement();
+    // forward x amount times
+    rest();
+
+    for (int i = 0; i < 500; i++){
+      fordward();
+      movement();
+    
 
 
-    // // turn right
-    // move.rest();
-    // motor.right();
-    // // while arguments
-    // move.movement();
+    rest();
+    // turn right
+    for (int i = 0; i < 500; i++){
+      right();
+      movement();
+    }
 
-    // // forward
-    // move.rest();
-    // motor.fordward();
-    // // while arguments
-    // move.movement();
+    rest();
+    // turn right x2 (180 degree)
+    for (int i = 0; i < 500; i++){
+      right();
+      movement();
+    }
 
-
+    rest();
+    // forward 2x
+    for (int i = 0; i < 500; i++){
+      fordward();
+      movement();
+    }
+    
 }

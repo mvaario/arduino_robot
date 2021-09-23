@@ -1,7 +1,5 @@
 void movement(){
     // Check interupts
-    interrupts();
-
     // Stop and return to idle state
     if (!on){
         stop();
@@ -15,28 +13,24 @@ void movement(){
         loop();
     }
 
-    // stop while interupted
-    while (left_distance < min_dis or right_distance < min_dis){
-        // hard code ei välttämättä paras, mut en keksiny parempaa ilma ylimmääräst callausta
-        // motors
-        analogWrite(left_enable, 0);
-        analogWrite(right_enable, 0);
-
-        // servo
-        myServo.write(myServo.read());
-        // timer could be nice here
-    }
+    // servo
+    myServo.write(angle);
 
     // motors
     analogWrite(left_enable, motor_speed);
     analogWrite(right_enable, motor_speed);
 
-    // servo
-    myServo.write(angle);
-    
+
+    // testing movement by printing things
+    Serial.println("speed");
+    Serial.println(motor_speed);
+    Serial.println("angle");
+    Serial.println(angle);
+    delay(100);
 }
 
 void interupts(){
+    start_button();
     // sensor info
     left_sensor();
     right_sensor();
@@ -44,12 +38,25 @@ void interupts(){
 
     // vika sensori
     // sensor.up_sensor();
+
+    // stop while interupted
+    while (left_distance < min_dis or right_distance < min_dis){
+        // motors
+        analogWrite(left_enable, 0);
+        analogWrite(right_enable, 0);
+
+        // servo
+        myServo.write(myServo.read());
+        // timer could be nice here
+
+        start_button();
+    }
 }
 
 void rest(){
     // stop motors
     stop();
-    for (int i = 0; i < rest_time; i++){
+    for (int i = 0; i < 1; i++){
         movement();
         delay(10);
     }

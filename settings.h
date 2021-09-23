@@ -1,4 +1,4 @@
-int on = false;                 // lets GOOOOO
+int on = true;                 // lets GOOOOO
 
 //switch
 const int switch_pin = 5;       // switch pin

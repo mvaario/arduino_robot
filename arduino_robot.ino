@@ -5,7 +5,6 @@
 #include "switch.h"
 #include "movement.h"
 
-
 void setup() {
   // Switch and leds
   // pinMode(switch_pin, INPUT);
@@ -39,50 +38,50 @@ void setup() {
   delay(1);
 }
 
-void loop () {
-    // idle state - check switch
-    start_button();
-    
-    // start 
-    if (on){
-      move_state();
-      // on = false when done
-      on = false;
-      delay(100);
-    }
-    else{
-      delayMicroseconds(100);
-    }
+void loop() {
+  // idle state - check switch
+  start_button();
+  
+  // start 
+  if (on){
+    move_state();
+    // on = false when done
+    on = false;
+    delay(100);
+  }
+  else{
+    delayMicroseconds(100);
+  }
 }
 
 void move_state(){
-  // forward x amount times
   rest();
 
-  for (int i = 0; i < 500; i++){
+  // forward x amount times
+  for (int i = 0; i < 2; i++){
     fordward();
     movement();
   }
 
   rest();
   // turn right
-  for (int i = 0; i < 500; i++){
+  for (int i = 0; i < 2; i++){
     right();
     movement();
   }
 
   rest();
   // turn right x2 (180 degree)
-  for (int i = 0; i < 500; i++){
+  for (int i = 0; i < 2; i++){
     right();
     movement();
   }
 
   rest();
   // forward 2x
-  for (int i = 0; i < 500; i++){
+  for (int i = 0; i < 2; i++){
     fordward();
     movement();
   }
-    
 }
+

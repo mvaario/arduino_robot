@@ -1,0 +1,10 @@
+// const char sting [] PROGMEM = {};
+
+const char user_route [] PROGMEM = {"user_route.txt"};
+
+
+
+
+  Serial.println("1");
+
+  Serial.print(user_route);

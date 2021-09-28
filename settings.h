@@ -50,3 +50,4 @@ Servo myServo;
 
 // Distances
 const int min_dis = 30;         // Sensor distance to stop
+

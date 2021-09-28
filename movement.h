@@ -15,6 +15,7 @@ void movement(){
 
     // servo
     myServo.write(angle);
+    // needs delay?
 
     // motors
     analogWrite(left_enable, motor_speed);

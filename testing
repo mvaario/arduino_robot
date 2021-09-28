@@ -8,3 +8,11 @@ const char user_route [] PROGMEM = {"user_route.txt"};
   Serial.println("1");
 
   Serial.print(user_route);
+
+  y 500 
+  x 200
+  x -200
+  y 600
+  x -200
+  x 200
+  y -1100

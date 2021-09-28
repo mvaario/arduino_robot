@@ -55,8 +55,8 @@ void loop() {
 }
 
 void move_state(){
-  rest();
 
+  rest();
   // forward x amount times
   for (int i = 0; i < 2; i++){
     fordward();

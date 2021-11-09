@@ -1,18 +1,4 @@
 void movement(){
-    // Check interupts
-    // Stop and return to idle state
-    if (!on){
-        stop();
-        // motors
-        analogWrite(left_enable, motor_speed);
-        analogWrite(right_enable, motor_speed);
-
-        // servo
-        myServo.write(angle);
-
-        loop();
-    }
-
     // servo
     myServo.write(angle);
     // needs delay?
@@ -21,43 +7,37 @@ void movement(){
     analogWrite(left_enable, motor_speed);
     analogWrite(right_enable, motor_speed);
 
-
-    // testing movement by printing things
-    Serial.println("speed");
-    Serial.println(motor_speed);
-    Serial.println("angle");
-    Serial.println(angle);
-    delay(100);
 }
 
-void interupts(){
-    start_button();
-    // sensor info
-    left_sensor();
-    right_sensor();
-    // sensor.center_sensor();
+void interupts_check(){
+    // check start/stop button
+    button_check();
 
-    // vika sensori
-    // sensor.up_sensor();
+    // left sensor check
+    int trig = left_trig;
+    int echo = left_echo;
+    left_distance = sensor_check(trig, echo);
 
-    // stop while interupted
+    // right sensor check
+    trig = right_trig;
+    echo = right_echo;
+    right_distance = sensor_check(trig, echo);
+
+    // up sensor check
+
+    // stop when interupts
     while (left_distance < min_dis or right_distance < min_dis){
-        // motors
-        analogWrite(left_enable, 0);
-        analogWrite(right_enable, 0);
-
-        // servo
-        myServo.write(myServo.read());
-        // timer could be nice here
-
-        start_button();
+        stop();
+        movement();
     }
+
 }
 
-void rest(){
+void rest(int sleep){
     // stop motors
     stop();
-    for (int i = 0; i < 1; i++){
+    for (int i = 0; i < sleep; i++){
+        interupts_check();
         movement();
         delay(10);
     }

@@ -37,7 +37,7 @@ const int turning_speed = 50;       // motor turning speed
 const int straight_speed = 80;      // motor straight / backward speed
 int motor_speed = 0;                // motor speed
 
-int rest_time = 50;                 // rest time
+int rest_time = 1;                 // rest time
 
 //Servo setups
 const int servo_pin = 10;        // servo pin

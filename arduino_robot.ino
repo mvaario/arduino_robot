@@ -1,7 +1,7 @@
 #include <Servo.h>
 #include "settings.h"
 #include "sensors.h"
-#include "motors.h"
+#include "parameters.h"
 #include "switch.h"
 #include "movement.h"
 
@@ -35,12 +35,15 @@ void setup() {
 
   myServo.attach(servo_pin);
   Serial.begin(9600);
+  Serial.println("");
   delay(1);
 }
 
 void loop() {
+  // for testing
+  on = true;
   // idle state - check switch
-  start_button();
+  button_check();
   
   // start 
   if (on){
@@ -55,33 +58,36 @@ void loop() {
 }
 
 void move_state(){
+  // delay
+  int sleep = rest_time;
+  rest(sleep);
 
-  rest();
   // forward x amount times
-  for (int i = 0; i < 2; i++){
+  int x = 100;
+  for (int i = 0; i < x; i++){
+    interupts_check();
     fordward();
     movement();
   }
 
-  rest();
-  // turn right
-  for (int i = 0; i < 2; i++){
+  // delay
+  rest(sleep);
+  // turn right x amount
+  x = 50;
+  for (int i = 0; i < x; i++){
+    interupts_check();
     right();
     movement();
   }
+  
 
-  rest();
-  // turn right x2 (180 degree)
-  for (int i = 0; i < 2; i++){
-    right();
-    movement();
-  }
-
-  rest();
-  // forward 2x
-  for (int i = 0; i < 2; i++){
+  // delay
+  rest(sleep);
+  // forward x amount
+  x = 100;
+  for (int i = 0; i < x; i++){
+    interupts_check();
     fordward();
     movement();
   }
 }
-

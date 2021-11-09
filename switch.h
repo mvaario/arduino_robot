@@ -1,4 +1,4 @@
-void start_button(){
+void button_check(){
     // reading on switch
     on_switch = digitalRead(switch_pin);
     delay(1);
@@ -12,9 +12,11 @@ void start_button(){
             on = false;
         }
     }
-    else{
+    else if (on_switch == LOW && old_switch == 1){
         old_switch = 0;
     }
+
+
 
     // for leds if needed
     // if (on){

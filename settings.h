@@ -20,9 +20,8 @@ const int right_trig = 5;       // right trigger (send)
 const int right_echo = 4;       // right echo (receive)
 float right_distance;           // calculated right distance
 
-// const int center_trig = 7;      // center trigger (send)
-// const int center_echo = 6;      // center echo (receive)
-// float center_distance;          // calculated center distance
+// IR sensor (give sensor)
+const int ir_sensor = 1;           //  up sensor
 
 // motors settings
 const int left_enable = 6;          // left motor enable pin

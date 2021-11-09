@@ -17,7 +17,6 @@ void button_check(){
     }
 
 
-
     // for leds if needed
     // if (on){
     //     digitalWrite(red_led, LOW);

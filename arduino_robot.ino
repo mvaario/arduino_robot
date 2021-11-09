@@ -6,8 +6,10 @@
 #include "movement.h"
 
 void setup() {
-  // Switch and leds
-  // pinMode(switch_pin, INPUT);
+  // switch
+  pinMode(switch_pin, INPUT);
+
+  // leds
   // pinMode(green_led, OUTPUT);
   // pinMode(red_led, OUTPUT);
   // digitalWrite(red_led, LOW);
@@ -20,8 +22,8 @@ void setup() {
   pinMode(right_trig, OUTPUT);
   pinMode(right_echo, INPUT);
 
-  // pinMode(center_trig, OUTPUT);
-  // pinMode(center_echo, INPUT);
+  // IR sensor
+  pinMode(ir_sensor, INPUT);
 
   // motor
   pinMode(left_enable, OUTPUT);
@@ -40,8 +42,6 @@ void setup() {
 }
 
 void loop() {
-  // for testing
-  on = true;
   // idle state - check switch
   button_check();
   
@@ -63,8 +63,8 @@ void move_state(){
   rest(sleep);
 
   // forward x amount times
-  int x = 100;
-  for (int i = 0; i < x; i++){
+  int times = 100;
+  for (int i = 0; i < times; i++){
     interupts_check();
     fordward();
     movement();
@@ -73,8 +73,8 @@ void move_state(){
   // delay
   rest(sleep);
   // turn right x amount
-  x = 50;
-  for (int i = 0; i < x; i++){
+  times = 50;
+  for (int i = 0; i < times; i++){
     interupts_check();
     right();
     movement();
@@ -84,8 +84,8 @@ void move_state(){
   // delay
   rest(sleep);
   // forward x amount
-  x = 100;
-  for (int i = 0; i < x; i++){
+  times = 100;
+  for (int i = 0; i < times; i++){
     interupts_check();
     fordward();
     movement();

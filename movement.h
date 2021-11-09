@@ -6,12 +6,17 @@ void movement(){
     // motors
     analogWrite(left_enable, motor_speed);
     analogWrite(right_enable, motor_speed);
-
 }
 
 void interupts_check(){
     // check start/stop button
     button_check();
+    // return to idle state
+    if (on = false){
+        stop();
+        movement();
+        loop();
+    }
 
     // left sensor check
     int trig = left_trig;
@@ -24,6 +29,11 @@ void interupts_check(){
     right_distance = sensor_check(trig, echo);
 
     // up sensor check
+    if (digitalRead(ir_sensor) == 1){
+        stop();
+        movement();
+        // GIVING ARGUMENTS
+    }
 
     // stop when interupts
     while (left_distance < min_dis or right_distance < min_dis){

@@ -1,4 +1,5 @@
 int on = true;                 // lets GOOOOO
+int move_times;
 
 //switch
 const int switch_pin = 5;       // switch pin
@@ -10,6 +11,8 @@ int old_switch = 0;
 // const int red_led = 0;      //led pin
 
 // distance sensors
+int trig;
+int echo;
 long duration;                  //time measure
 
 const int left_trig = 3;        // left trigger (send)

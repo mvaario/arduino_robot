@@ -11,7 +11,8 @@ void movement(){
 void interupts_check(){
     // check start/stop button
     button_check();
-    // return to idle state
+
+    // stop and return to idle state
     if (on = false){
         stop();
         movement();
@@ -19,8 +20,8 @@ void interupts_check(){
     }
 
     // left sensor check
-    int trig = left_trig;
-    int echo = left_echo;
+    trig = left_trig;
+    echo = left_echo;
     left_distance = sensor_check(trig, echo);
 
     // right sensor check
@@ -29,11 +30,11 @@ void interupts_check(){
     right_distance = sensor_check(trig, echo);
 
     // up sensor check
-    if (digitalRead(ir_sensor) == 1){
-        stop();
-        movement();
-        // GIVING ARGUMENTS
-    }
+    // if (digitalRead(ir_sensor) == 1){
+    //     stop();
+    //     movement();
+    //     // GIVING ARGUMENTS
+    // }
 
     // stop when interupts
     while (left_distance < min_dis or right_distance < min_dis){
@@ -43,10 +44,10 @@ void interupts_check(){
 
 }
 
-void rest(int sleep){
+void rest(int time){
     // stop motors
     stop();
-    for (int i = 0; i < sleep; i++){
+    for (int i = 0; i < time; i++){
         interupts_check();
         movement();
         delay(10);

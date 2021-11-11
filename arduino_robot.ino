@@ -59,22 +59,21 @@ void loop() {
 
 void move_state(){
   // delay
-  int sleep = rest_time;
-  rest(sleep);
+  rest(rest_time);
 
   // forward x amount times
-  int times = 100;
-  for (int i = 0; i < times; i++){
+  move_times = 100;
+  for (int i = 0; i < move_times; i++){
     interupts_check();
     fordward();
     movement();
   }
 
   // delay
-  rest(sleep);
+  rest(rest_time);
   // turn right x amount
-  times = 50;
-  for (int i = 0; i < times; i++){
+  move_times = 50;
+  for (int i = 0; i < move_times; i++){
     interupts_check();
     right();
     movement();
@@ -82,10 +81,10 @@ void move_state(){
   
 
   // delay
-  rest(sleep);
+  rest(rest_time);
   // forward x amount
-  times = 100;
-  for (int i = 0; i < times; i++){
+  move_times = 100;
+  for (int i = 0; i < move_times; i++){
     interupts_check();
     fordward();
     movement();

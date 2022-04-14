@@ -1,5 +1,5 @@
-void fordward(){
-    // parametres for forward
+// parametres for forward
+void forward(){
     // Motors speed
     motor_speed = straight_speed;
 
@@ -11,12 +11,12 @@ void fordward(){
     digitalWrite(right_1, HIGH);
     digitalWrite(right_2, LOW);
 
-    // servo angle
-    angle = servo_straight;
+    // servo
+    angle = straight_angle;
 }
 
+// parametres for backward
 void backward(){
-    // parametres for backward
     motor_speed = straight_speed;
 
     // left motor
@@ -27,13 +27,13 @@ void backward(){
     digitalWrite(right_1, LOW);
     digitalWrite(right_2, HIGH);
 
-    // servo angle
-    angle = servo_straight;
+     // servo
+    angle = straight_angle;
 }
 
+// parametres for right turn
 void right(){
-    // parametres for right turn
-    motor_speed = turning_speed;
+    motor_speed = straight_speed;
 
     // left motor
     digitalWrite(left_1, HIGH);
@@ -43,13 +43,13 @@ void right(){
     digitalWrite(right_1, LOW);
     digitalWrite(right_2, HIGH);
 
-    // servo angle
-    angle = servo_right;
+    // servo
+    angle = right_angle;
 }
 
+// parametres for left turn
 void left(){
-    // parametres for left turn
-    motor_speed = turning_speed;
+    motor_speed = straight_speed;
 
     // left motor
     digitalWrite(left_1, LOW);
@@ -59,12 +59,13 @@ void left(){
     digitalWrite(right_1, HIGH);
     digitalWrite(right_2, LOW);
 
-    // servo angle
-    angle = servo_left;
+    // servo
+    angle = left_angle;
+
 }
 
+// parametres for stop
 void stop(){
-    // parametres for stop
     motor_speed = 0;
 
     // left motor
@@ -75,6 +76,6 @@ void stop(){
     digitalWrite(right_1, LOW);
     digitalWrite(right_2, LOW);
 
-    // servo angle
-    angle = myServo.read();
+    // servo
+    angle = turning_servo.read();
 }

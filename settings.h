@@ -1,55 +1,63 @@
-int on = true;                 // lets GOOOOO
+// direction you want to go, available parameters {"forward", "left", "right", "backward"}
+String users_direction[] = {"forward", "left", "forward", "right", "left"};
+
+// Amount you want to go defined direction (100ms * x)
+int users_distances[] = {20, 20, 20, 20, 20};
+
+int on = true;                      // lets GOOOOO
+String direction;
 int move_times;
 
 //switch
-const int switch_pin = 5;       // switch pin
-int on_switch = 0;
-int old_switch = 0;
+const int switch_pin = 5;           // switch pin
+int on_switch;
+int old_switch;
 
-//leds
-// const int green_led = 0;    //led pin
-// const int red_led = 0;      //led pin
+// motors settings
+const int left_enable = 6;          // left motor enable pin
+const int left_1 = 24;              // left motor control pin 1
+const int left_2 = 22;              // left motor control pin 2
+
+const int right_enable = 7;         // left motor enable pin
+const int right_1 = 28;             // left motor control pin 1
+const int right_2 = 26;             // left motor control pin 2
+
+const int straight_speed = 80;      // motor straight / backward speed
+const int turning_speed = 80;       // motor turning speed
+const int motor_calibration = 0;    // change one motor speed: negative = left motor faster postive = right motor faster
+int motor_speed;                    // motor speed
+
+int rest_time = 5;                  // resting time (100ms * x)
+
+// turning servo
+Servo turning_servo; 
+const int turning_servo_pin = 9;    // servo pin
+               
+int angle;                          // servo angle
+const int straight_angle = 90;      // servo straight angle
+const int left_angle = 10;          // servo left angle
+const int right_angle = 170;        // servo right angle
+
+// IR sensor
+int ir_sensor;
+const int ir_sensor_pin = 4;        // ir sensor pin
+
+// giving servo
+const int give_servo_pin = 11;
+int give_on = false;
+int give_servo_time = 1000;
 
 // distance sensors
 int trig;
 int echo;
-long duration;                  //time measure
+int distance;
 
-const int left_trig = 3;        // left trigger (send)
-const int left_echo = 2;        // left echo (receive)
-float left_distance;            // calculated left distance
+const int left_trig = 1;            // left trigger (send)
+const int left_echo = 42;           // left echo (receive)
+long left_duration;                 // left sensor duration
 
-const int right_trig = 5;       // right trigger (send)
-const int right_echo = 4;       // right echo (receive)
-float right_distance;           // calculated right distance
+const int right_trig = 3;           // left trigger (send)
+const int right_echo = 2;          // left echo (receive)
+long right_duration;                // right sensor duration
 
-// IR sensor (give sensor)
-const int ir_sensor = 1;           //  up sensor
-
-// motors settings
-const int left_enable = 6;          // left motor enable pin
-const int left_1 = 22;              // left motor control 
-const int left_2 = 24;              // left motor control 2
-
-const int right_enable = 9;         // left motor enable pin
-const int right_1 = 26;             // left motor control 
-const int right_2 = 28;             // left motor control 2
-
-const int turning_speed = 50;       // motor turning speed
-const int straight_speed = 80;      // motor straight / backward speed
-int motor_speed = 0;                // motor speed
-
-int rest_time = 1;                 // rest time
-
-//Servo setups
-const int servo_pin = 10;        // servo pin
-const int servo_straight = 90;   // calibration for servo angle forward
-const int servo_left = 0;        // calibration for servo angle left
-const int servo_right = 179;     // calibration for servo angle right
-
-int angle = 90;                 // servo angle
-Servo myServo;
-
-// Distances
-const int min_dis = 30;         // Sensor distance to stop
-
+int min_distance = 5;              // distance to stop
